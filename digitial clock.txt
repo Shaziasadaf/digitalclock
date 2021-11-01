@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+  <title>Digtial Clock </title>
+    <link rel="icon" href="file:///C:/Users/HP/Desktop/JS/unnamed.png">
+    <style>
+      *{ 
+        margin: 0;
+        padding: 0;
+         
+      }
+      body{
+        background: black;
+      }
+      #digitalclock{
+        font-family: 'Festive', cursive;
+        text-align: center;
+        color:wheat;
+        font-size: 100px;
+        margin: 250px;
+        
+
+      }
+    </style>
+</head>
+<body>
+  <div id="digitalclock"></div> 
+  <script type="text/javascript">
+    
+    function showTime(){
+      let date = new Date();
+      let h = date.getHours();
+      let m =date.getMinutes();
+      let s= date.getSeconds();
+      let ms= date.getMilliseconds();
+      let session = 'AM' 
+     if(h==0){
+       h= 12 ; //12 hour format
+     } 
+     if(h>12){   //13-12=1 
+      // 12 hour format
+       h=h-12;
+       session="PM";
+     }
+     if(h<10){
+       h= "0"+h;
+     }
+     if(m<10){
+       m="0"+m;
+     }
+     if(s<10){
+       s="0"+s;
+     }
+     if(ms<10){
+       ms="00"+ms;
+     }
+      document.getElementById("digitalclock").innerHTML =
+      h +":"+ m + ":" + s+ ":" + ms +" "+session ; 
+    setTimeout(showTime,1000);
+    }
+    showTime();
+  </script>
+
+</body>
+</html>
